@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOMANDO STORE</title>
+    <style>
+        /* تصميم كربون فايبر وجيمنج نيون مستوحى من الصورة */
+        * {
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at center, #1a0505 0%, #0a0a0a 100%);
+            background-color: #0a0a0a;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        /* شريط المنيو العلوي */
+        nav {
+            background: rgba(10, 10, 10, 0.95);
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #ff1a1a;
+            box-shadow: 0 4px 20px rgba(255, 26, 26, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        nav button {
+            background: transparent;
+            color: #888;
+            border: none;
+            padding: 10px 25px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        nav button:hover, nav button.active {
+            color: #ff1a1a;
+            text-shadow: 0 0 15px #ff1a1a;
+        }
+
+        /* واجهة الهوم الكبيرة التي تحمل صورتك */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(10, 10, 10, 1)), url('Gemini_Generated_Image_6x7u576x7u576x7u.png') no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 2px solid #1a1a1a;
+        }
+
+        /* ضبط الصفحات */
+        .page {
+            display: none;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .page.active {
+            display: block;
+        }
+
+        /* تقسيم كروت الصفحة الرئيسية */
+        .grid-4 {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        /* ستايل الكارت الجيمنج المقتبس من الصورة */
+        .card {
+            background: linear-gradient(145deg, #141414, #0f0f0f);
+            border: 2px solid #222;
+            border-radius: 16px;
+            padding: 30px 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            flex: 1;
+            min-width: 250px;
+        }
+        .card:hover {
+            border-color: #ff1a1a;
+            box-shadow: 0 0 25px rgba(255, 26, 26, 0.4);
+            transform: translateY(-8px);
+        }
+        .card h3 {
+            color: #fff;
+            font-size: 1.6rem;
+            margin-top: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* التقسيم النصين لصفحات ببجي وروبلوكس */
+        .split-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .split-card {
+            flex: 1;
+            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+            border: 3px solid #ff1a1a;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(255, 26, 26, 0.1);
+            text-align: center;
+        }
+        .split-card:hover {
+            box-shadow: 0 0 35px rgba(255, 26, 26, 0.3);
+        }
+
+        /* العناوين المضيئة */
+        .page-title {
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        .page-title span {
+            color: #ff1a1a;
+            text-shadow: 0 0 20px #ff1a1a;
+        }
+
+        /* الأزرار النيون الجامدة */
+        .btn {
+            display: inline-block;
+            background: transparent;
+            color: #fff;
+            border: 2px solid #ff1a1a;
+            padding: 14px 35px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-radius: 50px;
+            margin-top: 20px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(255, 26, 26, 0.2);
+        }
+        .btn:hover {
+            background: #ff1a1a;
+            box-shadow: 0 0 25px #ff1a1a;
+            transform: scale(1.05);
+        }
+
+        /* أزرار السوشيال ميديا والواتساب */
+        .social-box {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .btn-social {
+            padding: 15px 35px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-tiktok { background: #000; border: 2px solid #ff0050; box-shadow: 0 5px 15px rgba(255,0,80,0.3); }
+        .btn-whatsapp-1 { background: #25d366; box-shadow: 0 5px 15px rgba(37,211,102,0.4); }
+        .btn-whatsapp-2 { background: #128c7e; box-shadow: 0 5px 15px rgba(18,140,126,0.4); }
+
+        .btn-social:hover {
+            transform: translateY(-5px);
+            filter: brightness(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .split-container { flex-direction: column; }
+            .page-title { font-size: 2rem; }
+            .hero-section { height: 40vh; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+        <button class="active" onclick="openPage('home', this)">Home</button>
+        <button onclick="openPage('pubg', this)">PUBG Mobile</button>
+        <button onclick="openPage('roblox', this)">Roblox</button>
+        <button onclick="openPage('about', this)">About & Contact</button>
+    </nav>
+
+    <div id="home" class="page active">
+        <div class="hero-section"></div>
+        <h2 class="page-title" style="margin-top:60px;">What We <span>Sell</span></h2>
+        <p style="color:#666; font-size: 1.2rem;">Premium Top-up & Premium Accounts Market</p>
+
+        <div class="grid-4">
+            <div class="card">
+                <h3>PUBG UC</h3>
+                <p style="color: #888;">Fast and secure Unknown Cash top-up via Player ID.</p>
+                <button class="btn" onclick="document.querySelectorAll('nav button')[1].click()">View Details</button>
+            </div>
+            <div class="card">
+                <h3>PUBG Accounts</h3>
+                <p style="color: #888;">Premium & stacked accounts with mythic items.</p>
+                <button class="btn" onclick="document.querySelectorAll('nav button')[1].click()">View Details</button>
+            </div>
+            <div class="card">
+                <h3>Roblox Robux</h3>
+                <p style="color: #888;">Get your Robux instantly with the best rates.</p>
+                <button class="btn" onclick="document.querySelectorAll('nav button')[2].click()">View Details</button>
+            </div>
+            <div class="card">
+                <h3>Roblox Accounts</h3>
+                <p style="color: #888;">High-level accounts stacked with rare assets.</p>
+                <button class="btn" onclick="document.querySelectorAll('nav button')[2].click()">View Details</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="pubg" class="page">
+        <h2 class="page-title">PUBG Mobile <span>Department</span></h2>
+        <p style="color:#666;">Select the required service to make your order</p>
+
+        <div class="split-container">
+            <div class="split-card">
+                <h3 style="color: #ff1a1a; font-size: 2rem;">PUBG UC (Top-Up)</h3>
+                <p style="color: #aaa; font-size: 1.1rem; line-height: 1.6;">Safe, legal, and instant UC charging via Player ID. Available for retail and wholesale bundles with unbeatable prices.</p>
+                <p style="color:#fff; font-weight:bold; margin-top:30px; letter-spacing: 1px;">⚡ INSTANT DELIVERY ⚡</p>
+                <button class="btn" onclick="document.querySelectorAll('nav button')[3].click()">Order UC Now</button>
+            </div>
+            <div class="split-card">
+                <h3 style="color: #ff1a1a; font-size: 2rem;">PUBG ACCOUNTS</h3>
+                <p style="color: #aaa; font-size: 1.1rem; line-height: 1.6;">Stacked gaming accounts with rare upgradable weapons, mythic outfits, and exclusive car skins. Fully secured linkings.</p>
+                <p style="color:#fff; font-weight:bold; margin-top:30px; letter-spacing: 1px;">🛡️ 100% SECURED ACCOUNTS 🛡️</p>
+                <button class="btn" onclick="document.querySelectorAll('nav button')[3].click()">Browse Accounts</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="roblox" class="page">
+        <h2 class="page-title">Roblox <span>Department</span></h2>
+        <p style="color:#666;">Get your game currency or upgraded account instantly</p>
+
+        <div class="split-container">
+            <div class="split-card">
+                <h3 style="color: #ff1a1a; font-size: 2rem;">ROBLOX ROBUX</h3>
+                <p style="color: #aaa; font-size: 1.1rem; line-height: 1.6;">Fast Robux transfer via group payout or gamepass method. Completely safe from any restrictions.</p>
+                <p style="color:#fff; font-weight:bold; margin-top:30px; letter-spacing: 1px;">🔥 CHEAPEST IN THE MARKET 🔥</p>
+                <button class="btn" onclick="document.querySelectorAll('nav button')[3].click()">Buy Robux Now</button>
+            </div>
+            <div class="split-card">
+                <h3 style="color: #ff1a1a; font-size: 2rem;">ROBLOX ACCOUNTS</h3>
+                <p style="color: #aaa; font-size: 1.1rem; line-height: 1.6;">High-tier accounts with premium avatars, pre-purchased gamepasses and limited items.</p>
+                <p style="color:#fff; font-weight:bold; margin-top:30px; letter-spacing: 1px;">🔑 FULL ACCESS DELIVERY 🔑</p>
+                <button class="btn" onclick="document.querySelectorAll('nav button')[3].click()">Browse Accounts</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="about" class="page">
+        <h2 class="page-title">Why <span>KOMANDO STORE</span>?</h2>
+        
+        <div class="split-card" style="max-width: 900px; margin: 30px auto; text-align: center; border-color: #222;">
+            <p style="font-size: 1.5rem; font-weight: bold; color: #ff1a1a; margin-top:0;">THE BEST GAMING STORE IN THE MARKET!</p>
+            <p style="color: #ccc; font-size: 1.2rem; line-height: 1.8;">Welcome to <strong>KOMANDO STORE</strong>, your ultimate destination for all gaming services. We pride ourselves on being the fastest, safest, and most trusted store for PUBG Mobile and Roblox items. Our team works around the clock to provide you with seamless top-ups and legendary accounts. High security and customer satisfaction are our core values!</p>
+        </div>
+
+        <h2 class="page-title" style="margin-top: 60px;">Official <span>Contact</span></h2>
+        <p style="color:#666;">Choose your preferred channel to connect with our team</p>
+
+        <div class="social-box">
+            <a href="https://www.tiktok.com/@brazili3adyyyyy?_r=1&_t=ZS-96bphdjuhGO" target="_blank" class="btn-social btn-tiktok">TikTok Profile</a>
+            <a href="https://wa.me/201016969272" target="_blank" class="btn-social btn-whatsapp-1">WhatsApp (Primary)</a>
+            <a href="https://wa.me/201279082727" target="_blank" class="btn-social btn-whatsapp-2">WhatsApp (Secondary)</a>
+        </div>
+        
+        <p style="margin-top: 60px; color: #444; font-size: 0.9rem; letter-spacing: 1px;">&copy; 2026 KOMANDO STORE. DEVELOPED FOR ELITE GAMERS.</p>
+    </div>
+
+    <script>
+        function openPage(pageId, elmnt) {
+            var pages = document.getElementsByClassName("page");
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].classList.remove("active");
+            }
+            var navButtons = document.querySelectorAll("nav button");
+            for (var i = 0; i < navButtons.length; i++) {
+                navButtons[i].classList.remove("active");
+            }
+            document.getElementById(pageId).classList.add("active");
+            elmnt.classList.add("active");
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+
+</body>
+</html>
