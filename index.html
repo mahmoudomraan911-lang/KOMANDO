@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOMANDO EL HAKEM HUB</title>
+    <title>BRAZILI HUB</title>
     <style>
         :root {
             --bg-color: #040508;
@@ -30,11 +30,11 @@
             background-attachment: fixed;
             color: var(--text-color);
             direction: rtl;
-            padding: 15px; /* مناسب لمقاس الموبايل */
+            padding: 15px;
         }
 
         .desktop-container {
-            max-width: 800px; /* جعل الحاوية ملمومة ومخصصة للهاتف بشكل أساسي */
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -50,7 +50,7 @@
             border-radius: 12px;
             margin-bottom: 25px;
             box-shadow: 0 5px 25px rgba(0,0,0,0.5);
-            text-align: center; /* في المنتصف تماماً فوق */
+            text-align: center;
         }
 
         .logo {
@@ -73,7 +73,7 @@
             transition: all 0.3s;
             box-shadow: 0 0 10px rgba(57, 255, 20, 0.2);
             text-align: center;
-            width: 100%; /* لعرض الزرار بشكل ممتاز وموسطن في الهيدر */
+            width: 100%;
             max-width: 320px;
         }
 
@@ -92,7 +92,6 @@
             text-shadow: 0 0 10px rgba(255, 0, 85, 0.4);
         }
 
-        /* تعديل الـ Grid لعرض حاجتين بالظبط في كل سطر للكمبيوتر والهاتف */
         .desktop-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr); 
@@ -155,7 +154,6 @@
         .btn-alert { color: var(--neon-red); border-color: var(--neon-red); }
         .btn-alert:hover { background: var(--neon-red); color: #fff; box-shadow: 0 0 15px var(--neon-red); }
 
-        /* 🛠️ تصميم اللوحة المنبثقة (Modal) 🛠️ */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -242,7 +240,6 @@
             transform: translateY(-2px);
         }
 
-        /* قنوات التواصل أسفل الصفحة في المنتصف */
         .contact-section-container {
             margin-top: 40px;
             display: flex;
@@ -257,8 +254,7 @@
             border-radius: 16px;
             padding: 20px 15px;
             width: 100%;
-            text-align: center; /* توسيط كل شيء بالداخل */
-            box-shadow: 0 10px 30px rgba(157, 78, 221, 0.15);
+            text-align: center;
         }
 
         .contact-standalone-card h3 {
@@ -277,7 +273,7 @@
         .contact-row {
             display: flex;
             gap: 10px;
-            justify-content: center; /* توسيط الأزرار في المنتصف تماماً */
+            justify-content: center;
             flex-wrap: wrap;
         }
 
@@ -307,7 +303,7 @@
 
     <div class="desktop-container">
         <header>
-            <div class="logo">KOMANDO EL HAKEM HACKER HUB</div>
+            <div class="logo">BRAZILI HACKER HUB</div>
             <a href="https://desktop.github.com/" target="_blank" class="github-top-btn">تحميل برنامج GitHub Desktop للكمبيوتر 📥</a>
         </header>
 
@@ -381,18 +377,17 @@
 
         <div class="contact-section-container">
             <div class="contact-standalone-card">
-                <h3>قنوات تواصل المطور الرسمي (KOMANDO EL HAKEM)</h3>
+                <h3>قنوات تواصل المطور الرسمي (BRAZILI)</h3>
                 <p>يمكنك متابعة الشروحات الحصرية أو فتح شات استفسارات مباشر عبر الأزرار المخصصة بالأسفل</p>
                 <div class="contact-row">
                     <a href="https://www.tiktok.com/@komando_3mk?_r=1&_t=ZS-97d6FTW8zHM" target="_blank" class="contact-btn btn-tiktok">TikTok 🎬</a>
                     <a href="https://t.me/komando99987" target="_blank" class="contact-btn btn-telegram">Telegram 🚀</a>
-                    <a href="https://wa.me/201xxxxxxxxx" target="_blank" class="contact-btn btn-whatsapp">WhatsApp 💬</a>
+                    <a href="https://wa.me/201200000000" target="_blank" class="contact-btn btn-whatsapp">WhatsApp 💬</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 🌐 هيكل اللوحة المنبثقة الذكية (Modal HTML Skeleton) 🌐 -->
     <div class="modal-overlay" id="customModal">
         <div class="modal-box">
             <div class="modal-title" id="mTitle">اسم الأداة</div>
@@ -404,7 +399,6 @@
         </div>
     </div>
 
-    <!-- 🛠️ سكربت الجافا سكريبت لتحديث وعرض اللوحة المنبثقة 🛠️ -->
     <script>
         const toolsData = {
             evilginx: {
@@ -445,7 +439,7 @@
             checklinks: {
                 title: "Check Links Tool Guide",
                 desc: "سكريبت بايثون ذكي مخصص لفحص الروابط والنطاقات المشبوهة وتحليل مساراتها للتأكد من خلوها من ملفات التجسس أو الصفحات المزورة قبل زيارتها.",
-                code: "git clone https://github.com/KOMANDO/check-links\ncd check-links\npip install -r requirements.txt\npython3 check_links.py"
+                code: "git clone https://github.com/BRAZILI/check-links\ncd check-links\npip install -r requirements.txt\npython3 check_links.py"
             },
             termux_cmds: {
                 title: "Termux Essential Configuration",
